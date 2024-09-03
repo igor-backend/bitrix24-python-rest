@@ -121,7 +121,7 @@ class Bitrix24:
                 if "error" in response:
                     if response["error"] == "QUERY_LIMIT_EXCEEDED":
                         await asyncio.sleep(self._retry_after)
-                        return await self.request(method, params)
+                        return await self.request(http_method, method, params)
                     raise BitrixError(response["error_description"], response["error"])
                 return response
 
